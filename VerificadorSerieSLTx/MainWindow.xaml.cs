@@ -31,9 +31,18 @@ namespace VerificadorSerieSLTx
             device = new Dispositivo();
             device.Conexion += device_Conexion;
             device.Desconexion += device_Desconexion;
+            populateCbx();
             if (!device.conectado)
                 desconexion();
 
+        }
+        
+        private void populateCbx()
+        {
+            this.cbx_cmd.Items.Add("89");
+            this.cbx_cmd.Items.Add("88");
+            this.cbx_cmd.SelectedIndex = 0;
+            
         }
 
         void device_Desconexion()
@@ -78,7 +87,6 @@ namespace VerificadorSerieSLTx
 
             for (int i = 0; i < length; i++ )
             {
-
                 hexOutput += Convert.ToInt32(charValues[i]).ToString("X");
             }
             return hexOutput;
@@ -130,31 +138,33 @@ namespace VerificadorSerieSLTx
             byte[] command =  new byte[63];
             byte[] content = new byte[63];
             
-            if(cmd.Text != null){
+           
                 //string hex = cmd.Text.Replace("0x","");
-                uint _cmd = uint.Parse(cmd.Text, System.Globalization.NumberStyles.AllowHexSpecifier);
+                uint _cmd = uint.Parse(cbx_cmd.SelectedItem.ToString(), System.Globalization.NumberStyles.AllowHexSpecifier);
                 command[0] = (byte) _cmd;
                             
-                if (cmd_contenido != null) {
+                if (cmd_contenido.Text.Length == 9) {
                     string[] str = stringToHexArray(cmd_contenido.Text);
             
                     for(int i=0;i<str.Length; i++){
                         uint tmp = uint.Parse(str[i], System.Globalization.NumberStyles.AllowHexSpecifier);
                         command[i+1] = (byte) tmp;
                     }
-                    //string[] str = stringToHexArray(cmd_contenido.Text);
-                    //content = StringToByteArray(stringToHex(cmd_contenido.Text));
-                   
-                    Debug.WriteLine("bytes "+command.Length);
-                    foreach(byte b in command)
-                        Debug.Write(b.ToString("X")+"-");
-                    Debug.WriteLine("");                  
-                }
 
-                device.WriteCommand(command);
-                
-                Button_Click_1(this, null);
-            }
+                    string text="W ";
+                    foreach (byte b in command)
+                    {
+                        text += b.ToString("X");
+                        text += " ";
+                    }
+                    setText(text);                  
+                }
+                else if (cmd_contenido.Text.Length == 0 && command[0] == 0x89) {
+                    setText("El comando 89 no se puede ejecutar, falta el número de serie o es incorrecto");
+                    return;
+                }
+                device.WriteCommand(command);               
+                Button_Click_1(this, null);            
         }
         public static byte[] StringToByteArray(String hex)
         {
@@ -165,11 +175,28 @@ namespace VerificadorSerieSLTx
             return bytes;
         }
 
+        private void setText(string text) {
+            console.Text += text;
+            console.Text += "\n";
+            console.ScrollToEnd();
+        }
+        private void clearConsole() {
+            console.Text = "";
+        }
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             device.WriteCommand(new byte[]{0x88});
+            setText("W 88");
             versionFirmware.Content = device.getFirmwareVersion();
+            string serie = device.getFirmwareVersion();
             numeroSerie.Content = device.getSerialNumber();
+            produccion.Content = device.getProduction();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            clearConsole();
         }
 
     }
