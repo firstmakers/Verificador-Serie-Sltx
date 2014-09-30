@@ -34,6 +34,8 @@ namespace VerificadorSerieSLTx
             populateCbx();
             if (!device.conectado)
                 desconexion();
+            else
+                conexion();
 
         }
         
@@ -55,6 +57,8 @@ namespace VerificadorSerieSLTx
             send.IsEnabled = false;
             numeroSerie.Content = "";
             versionFirmware.Content = "";
+            produccion.Content = "";
+            device_state.Source = new BitmapImage(new Uri(@"pack://application:,,,/VerificadorSerieSLTx;component/images/device_detached.png"));
 
         }
 
@@ -65,8 +69,9 @@ namespace VerificadorSerieSLTx
 
         private void conexion()
         {
+            device_state.Source = new BitmapImage(new Uri(@"pack://application:,,,/VerificadorSerieSLTx;component/images/device_ok.png"));
             send.IsEnabled = true;
-            device.WriteCommand(new byte[]{0x88});
+            Button_Click_1(this, null);
         }
 
         private void cmdContenidoChanged(object sender, TextChangedEventArgs e)

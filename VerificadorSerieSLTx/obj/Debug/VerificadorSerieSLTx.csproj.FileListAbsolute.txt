@@ -13,3 +13,8 @@ c:\users\edelgado\documents\visual studio 2013\Projects\VerificadorSerieSLTx\Ver
 c:\users\edelgado\documents\visual studio 2013\Projects\VerificadorSerieSLTx\VerificadorSerieSLTx\obj\Debug\VerificadorSerieSLTx.pdb
 c:\users\edelgado\documents\visual studio 2013\Projects\VerificadorSerieSLTx\VerificadorSerieSLTx\bin\Debug\HID.dll
 c:\users\edelgado\documents\visual studio 2013\Projects\VerificadorSerieSLTx\VerificadorSerieSLTx\bin\Debug\HID.pdb
+C:\Users\eDelgado\documents\visual studio 2013\Projects\VerificadorSerieSLTx\VerificadorSerieSLTx\bin\Debug\VerificadorSerieSLTx.exe.manifest
+C:\Users\eDelgado\documents\visual studio 2013\Projects\VerificadorSerieSLTx\VerificadorSerieSLTx\bin\Debug\VerificadorSerieSLTx.application
+C:\Users\eDelgado\documents\visual studio 2013\Projects\VerificadorSerieSLTx\VerificadorSerieSLTx\obj\Debug\VerificadorSerieSLTx.TrustInfo.xml
+C:\Users\eDelgado\documents\visual studio 2013\Projects\VerificadorSerieSLTx\VerificadorSerieSLTx\obj\Debug\VerificadorSerieSLTx.exe.manifest
+C:\Users\eDelgado\documents\visual studio 2013\Projects\VerificadorSerieSLTx\VerificadorSerieSLTx\obj\Debug\VerificadorSerieSLTx.application
