@@ -61,16 +61,16 @@
             <RowDefinition Height="181*"/>
         </Grid.RowDefinitions>
         <Button Content="Enviar" Name="send" Margin="5,27,9,0" VerticalAlignment="Top" Height="23" Click="Button_Click" Grid.Column="3"/>
-        <TextBox Name="cmd_contenido" MaxLength="62" MaxLines="1" Height="23" Margin="8.06,27,11,0" TextWrapping="Wrap" VerticalAlignment="Top" ToolTip="Contenido Comando" TextChanged="cmdContenidoChanged" Grid.Column="1"/>
+        <TextBox Name="cmd_contenido" MaxLength="62" MaxLines="1" Height="23" Margin="8.06,27,11,0" TextWrapping="Wrap" VerticalAlignment="Top" ToolTip="Contenido Comando" TextChanged="cmdContenidoChanged" Grid.Column="1" FontFamily="Consolas"/>
         <TextBox Name="console"   Padding="5" Margin="10,10,56,10"  Grid.Row="2" TextWrapping="Wrap" Grid.ColumnSpan="4" FontFamily="Consolas" IsReadOnly="True" Background="#FF242524" BorderBrush="#FFB0B2B6" Style="{DynamicResource TextBoxStyle}" />
         <CheckBox Name="to_hex"  Content="Hex" Margin="1,32,0,0" VerticalAlignment="Top" IsChecked="True" ToolTip="Convierte el contenio del comando a Hexadecimal" Height="15" Unchecked="toHexUncheck" Checked="toHexChecked" Grid.Column="2"/>
         <Label Name="cmd_hex" Content="" HorizontalAlignment="Left" Margin="8.06,50,0,0" VerticalAlignment="Top" Width="478" Grid.Column="1"/>
-        <Label Content="xxxxxxxx" Padding="0" Name="numeroSerie"  Grid.Row="1" FontSize="36" FontFamily="Segoe WP Semibold" Margin="89,54,0,197" Grid.Column="1" HorizontalAlignment="Left" Width="204"/>
-        <Label Content="x.x" Name="versionFirmware"  Grid.Row="1" Margin="89,2,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="64" Height="26" VerticalAlignment="Top"/>
+        <Label Content="xxxxxxxx" Padding="0" Name="numeroSerie"  Grid.Row="1" FontSize="36" FontFamily="Tahoma" Margin="89,54,11,197" Grid.Column="1" FontWeight="Bold"/>
+        <Label Content="x.x" Name="versionFirmware"  Grid.Row="1" Margin="89,2,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="64" Height="26" VerticalAlignment="Top" FontFamily="Tahoma" FontWeight="Bold"/>
         <Button Content="Ver Serie" Margin="5,10,10,0" Grid.Row="1" VerticalAlignment="Top" Height="25" Click="Button_Click_1" Grid.Column="3"/>
-        <Label Content="Firmware:" Grid.Column="1" HorizontalAlignment="Left" Margin="8,2,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Label Content="Serie:" Grid.Column="1" HorizontalAlignment="Left" Margin="8,69,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0,0.154"/>
-        <ComboBox Name="cbx_cmd" Margin="10,28,10,0" VerticalAlignment="Top" BorderBrush="#FF272727" Foreground="#FF303030">
+        <Label Content="Firmware:" Grid.Column="1" HorizontalAlignment="Left" Margin="8,2,0,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <Label Content="Serie:" Grid.Column="1" HorizontalAlignment="Left" Margin="8,69,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0,0.154" FontFamily="Tahoma"/>
+        <ComboBox Name="cbx_cmd" Margin="10,28,10,0" VerticalAlignment="Top" BorderBrush="#FF272727" Foreground="#FF303030" FontFamily="Consolas">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -79,8 +79,8 @@
             </ComboBox.Background>
         </ComboBox>
         <Button Content="" Grid.Column="3" Margin="0,10,9,0" Grid.Row="2" VerticalAlignment="Top" Height="37" Click="Button_Click_2" HorizontalAlignment="Right" Width="37"/>
-        <Label Content="Producción:" Grid.Column="1" HorizontalAlignment="Left" Margin="8,28,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Label Content="xx" Name="produccion"  Grid.Column="1" HorizontalAlignment="Left" Margin="89,28,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="Producción:" Grid.Column="1" HorizontalAlignment="Left" Margin="8,28,0,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <Label Content="xx" Name="produccion"  Grid.Column="1" HorizontalAlignment="Left" Margin="89,28,0,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Tahoma" FontWeight="Bold"/>
 
 
     </Grid>
